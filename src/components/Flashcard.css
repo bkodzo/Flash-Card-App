@@ -1,0 +1,204 @@
+.flashcard {
+  width: 400px;
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+/* Difficulty-based color themes */
+.difficulty-easy .flashcard-front {
+  background: linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 100%);
+  color: #2d3748;
+}
+
+.difficulty-easy .flashcard-back {
+  background: linear-gradient(135deg, #7fcdcd 0%, #88d8c0 100%);
+  color: #2d3748;
+}
+
+.difficulty-medium .flashcard-front {
+  background: linear-gradient(135deg, #ffd93d 0%, #ff9a56 100%);
+  color: #2d3748;
+}
+
+.difficulty-medium .flashcard-back {
+  background: linear-gradient(135deg, #ff9a56 0%, #ffad5a 100%);
+  color: #2d3748;
+}
+
+.difficulty-hard .flashcard-front {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+}
+
+.difficulty-hard .flashcard-back {
+  background: linear-gradient(135deg, #ee5a24 0%, #ff6348 100%);
+  color: white;
+}
+
+.difficulty-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.difficulty-easy .difficulty-badge {
+  background: rgba(34, 139, 34, 0.8);
+  color: white;
+}
+
+.difficulty-medium .difficulty-badge {
+  background: rgba(255, 140, 0, 0.8);
+  color: white;
+}
+
+.difficulty-hard .difficulty-badge {
+  background: rgba(220, 20, 60, 0.8);
+  color: white;
+}
+
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-image {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-image img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.difficulty-easy .card-image img {
+  filter: none;
+}
+
+.difficulty-medium .card-image img {
+  filter: none;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 1.4;
+  text-align: center;
+  font-weight: 400;
+  max-width: 90%;
+}
+
+.flip-hint {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85em;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.flashcard:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.flashcard:hover .flashcard-front,
+.flashcard:hover .flashcard-back {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .flashcard {
+    width: 350px;
+    height: 250px;
+  }
+  
+  .card-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .card-image img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flashcard {
+    width: 300px;
+    height: 220px;
+  }
+  
+  .card-content p {
+    font-size: 1em;
+  }
+} 
