@@ -1,0 +1,142 @@
+.score-tracker {
+  width: 100%;
+  max-width: 400px;
+  margin: 16px 0;
+}
+
+.streak-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  gap: 24px;
+}
+
+.streak-item {
+  text-align: center;
+  flex: 1;
+}
+
+.streak-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.streak-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  transition: all 0.2s ease;
+}
+
+.streak-item.current .streak-value {
+  color: #1e40af;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.streak-item.longest .streak-value {
+  color: #f59e0b;
+}
+
+.streak-divider {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.divider-line {
+  width: 1px;
+  height: 32px;
+  background: #e5e7eb;
+}
+
+.streak-message {
+  text-align: center;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: #f0fdf4;
+  border-radius: 8px;
+  color: #166534;
+  font-weight: 500;
+  font-size: 0.875rem;
+  animation: bounce 0.5s ease-in-out;
+  border: 1px solid #22c55e;
+}
+
+@keyframes glow {
+  from {
+    color: #1e40af;
+  }
+  to {
+    color: #3b82f6;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .streak-container {
+    padding: 16px;
+    gap: 20px;
+  }
+  
+  .streak-value {
+    font-size: 1.75rem;
+  }
+  
+  .streak-label {
+    font-size: 0.7rem;
+  }
+  
+  .divider-line {
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .score-tracker {
+    max-width: 100%;
+    margin: 12px 0;
+  }
+  
+  .streak-container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .streak-item {
+    padding: 8px 0;
+  }
+  
+  .streak-value {
+    font-size: 1.5rem;
+  }
+  
+  .divider-line {
+    width: 32px;
+    height: 1px;
+  }
+  
+  .streak-message {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    margin-top: 8px;
+  }
+} 

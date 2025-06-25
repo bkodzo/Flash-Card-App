@@ -3,12 +3,13 @@
 }
 
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   
   color-scheme: light;
-  background-color: #ffffff;
+  background-color: #fafafa;
+  color: #111827;
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,6 +24,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #fafafa;
 }
 
 #root {
@@ -33,10 +35,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  color: #111827;
 }
 
 p {
   margin: 0;
+  color: #6b7280;
 }
 
 button {
@@ -45,9 +49,10 @@ button {
   font-weight: inherit;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 button:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline: 2px solid #6366f1;
   outline-offset: 2px;
 }
